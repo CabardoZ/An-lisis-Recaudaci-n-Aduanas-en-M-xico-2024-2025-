@@ -59,45 +59,65 @@ app.layout = html.Div(
                          placeholder='Todos los meses')
         ], style={'width': '50%','margin': 'auto','marginBottom': '20px'}),
 
-        # GRÁFICOS
+        # GRÁFICO 1
         html.Div([
             html.H3("Recaudación por Aduana", style={'color': color_principal, 'textAlign': 'center'}),
+            html.P("Con el menú de selección superior, puede consultar la recaudación por Aduana en las 50 distribuidas en México por impuesto, mes y año.", style={'textAlign': 'center'}),
             dcc.Graph(id='grafico-recaudacion')
-        ], style={'width': '95%','margin': 'auto','marginBottom': '30px','backgroundColor':'white','border':f'2px solid {color_principal}','borderRadius':'10px','padding':'20px'}),
+        ], style={'width': '95%','border': f'2px solid {color_principal}','borderRadius': '10px','padding': '20px',
+                  'backgroundColor': 'white','margin': 'auto','marginBottom': '30px'}),
 
+        # GRÁFICO 2
         html.Div([
             html.H3("Evolución Mensual de la Recaudación", style={'color': color_principal, 'textAlign': 'center'}),
+            html.P("En el presente gráfico se puede observar el comportamiento mensual de la recaudación por impuesto y año, seleccione Año e Impuesto en el menú superior para consultar.", style={'textAlign': 'center','marginBottom': '20px'}),
             dcc.Graph(id='grafico-mensual')
-        ], style={'width': '95%','margin': 'auto','marginBottom': '30px','backgroundColor':'white','border':f'2px solid {color_principal}','borderRadius':'10px','padding':'20px'}),
+        ], style={'width': '95%','border': f'2px solid {color_principal}','borderRadius': '10px','padding': '20px',
+                  'backgroundColor': 'white','margin': 'auto','marginBottom': '30px'}),
 
+        # GRÁFICO 3
         html.Div([
             html.H3("Variación Mensual Total Enero–Julio 2024 vs 2025", style={'color': color_principal, 'textAlign': 'center'}),
+            html.P("En cada uno de los meses mostrados, la recaudación de 2025 fue consistentemente mayor que en 2024.Esto indica una tendencia general de crecimiento en la recaudación interanual durante este período. La recaudación se mantuvo relativamente estable en los siete meses de ambos años, no obstante mostrando una tendencia creciente, siendo abril dónde se registró un pico crecimiento notable, además en este mes se presenta la mayo diferencia entre 2024 y 2025.Para 2024 se registró una recaudación en un rango de 170 a 205 millones de pesos y para 2025 en un rango entre 191 y 239 millones de pesos.", style={'textAlign': 'justify'}),
             dcc.Graph(id='grafico-variacion')
-        ], style={'width': '95%','margin': 'auto','marginBottom': '30px','backgroundColor':'white','border':f'2px solid {color_principal}','borderRadius':'10px','padding':'20px'}),
+        ], style={'width': '95%','border': f'2px solid {color_principal}','borderRadius': '10px','padding': '20px',
+                  'backgroundColor': 'white','margin': 'auto','marginBottom': '30px'}),
 
+        # GRÁFICO 4 - PASTEL
         html.Div([
             html.H3("Distribución de Impuestos Reales Enero–Julio 2024 vs 2025",
                     style={'color': color_principal, 'textAlign': 'center'}),
+            html.P("Ambos gráficos muestran la distribución porcentual de la recaudación real por impuestos para el periodo de enero a julio, comparado entre los años 2024 y 2025. En ambos años, el IVA es el impuesto que aporta la mayor parte de la recaudación total, seguido del IEPS y el IGI. La recaudación tuvo un cambio notable de 2024 a 2025, la dependencia del IVA disminuyó, de 72.6% (2024) a 67.8% (2025), por otro lado el IEPS aumentó de 13.3% (2024) a 17.9% (2025), los demás impuestos mantuvieron su peso porcentual en la recaudación en ambos años. Los datos nos sugieren que las políticas y condiciones ecónomicas en 2025 llevaron a una mayor recaudación del IEPS, diversificando ligeramente las fuentes de ingresos en comparación con 2024. ", style={'textAlign': 'justify'}),
             html.Div([
                 dcc.Graph(id='grafico-pastel-2024', style={'width': '48%', 'display': 'inline-block'}),
                 dcc.Graph(id='grafico-pastel-2025', style={'width': '48%', 'display': 'inline-block'})
             ])
-        ], style={'width': '95%','margin': 'auto','marginBottom': '30px','backgroundColor':'white','border':f'2px solid {color_principal}','borderRadius':'10px','padding':'20px'}),
+        ], style={'width': '95%','border': f'2px solid {color_principal}','borderRadius': '10px','padding': '20px',
+                  'backgroundColor': 'white','margin': 'auto','marginBottom': '30px'}),
 
+        # GRÁFICO 5 - RANKING TOP 10
         html.Div([
             html.H3("Top 10 Aduanas por Recaudación Total", style={'color': color_principal, 'textAlign': 'center'}),
+            html.P("Las aduanas ubicadas en las ciudades de Nuevo Laredo,Manzanillo, Veracruz y Lázaro Cardenas son las que obtuvieron mayor recaudación, con un rango entre 120 y 221 millones de pesos (2024) y 134 y 231 millones de pesos (2025), con una recaudación notablemente superior respecto al año anterior. En general, la recaudación total en 2025 fue significativamente mayor en 2025 que en 2024, por citar un ejemplo en Lázaro Cárdenas aumentó en terminos reales en 11.67 %. El aumento en las principales aduanas del país podría ser la causa principal en el aumento de los ingresos recaudatorios, cómo se observó en los gráficos anteriores.  ", style={'textAlign': 'justify'}),
             dcc.Graph(id='grafico-top10')
-        ], style={'width': '95%','margin': 'auto','marginBottom': '30px','backgroundColor':'white','border':f'2px solid {color_principal}','borderRadius':'10px','padding':'20px'}),
+        ], style={'width': '95%','border': f'2px solid {color_principal}','borderRadius': '10px','padding': '20px',
+                  'backgroundColor': 'white','margin': 'auto','marginBottom': '30px'}),
 
+        # GRÁFICO 6 - SERIE TEMPORAL
         html.Div([
             html.H3("Serie Temporal Comparativa (2024 vs 2025)", style={'color': color_principal, 'textAlign': 'center'}),
+            html.P("La recaudación de 2025 fue consistentemente superior a la del 2024 en el mismo periodo (enero-julio). El comportamiento de ambos años es similar, siguen un patrón similar de picos y valles en la recaudación, en marzo de ambos años denota una disminución, pero en abril se observa que alcanza su máximo valor en la recaudación, después la tendencia baja ligeramente para recuperarse en julio. En general la gráfica muestra una tendencia positiva en la recaudación de 2025, lo que indica un mejor desempeño fiscal respecto al 2024.", style={'textAlign': 'justify'}),
             dcc.Graph(id='grafico-serie')
-        ], style={'width': '95%','margin': 'auto','marginBottom': '30px','backgroundColor':'white','border':f'2px solid {color_principal}','borderRadius':'10px','padding':'20px'}),
-
+        ], style={'width': '95%','border': f'2px solid {color_principal}','borderRadius': '10px','padding': '20px',
+                  'backgroundColor': 'white','margin': 'auto','marginBottom': '30px'}),
+  
+        # GRÁFICO 7 - MAPA
         html.Div([
             html.H3("Mapa de Recaudación por Aduana", style={'color': color_principal, 'textAlign': 'center'}),
+            html.P("Consulte en el mapa la recaudación por Aduana en todo el territorio nacional, seleccione en el menú superior el Año para visualizar.", style={'textAlign': 'center','marginBottom': '20px'}),
             dcc.Graph(id='grafico-mapa')
-        ], style={'width': '95%','margin': 'auto','marginBottom': '30px','backgroundColor':'white','border':f'2px solid {color_principal}','borderRadius':'10px','padding':'20px'}),
+        ], style={'width': '95%','border': f'2px solid {color_principal}','borderRadius': '10px','padding': '20px',
+                  'backgroundColor': 'white','margin': 'auto','marginBottom': '30px'}),
     ]
 )
 
@@ -216,3 +236,4 @@ def update_graphs(impuesto, año, mes):
 # ========== EJECUCIÓN ==========
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8050, debug=True)
+
